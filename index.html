@@ -1,1 +1,69 @@
-who is the baba?
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Image Display</title>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+  }
+
+  .image-container {
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+  }
+
+  .image-container img {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+  }
+
+  .image-container:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+  @media only screen and (max-width: 700px) {
+    .image-container {
+      width: 95%;
+      max-width: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="image-container">
+  <img id="random-image" src="" alt="Hops is the baba">
+</div>
+
+<script>
+  // List of image URLs
+  const images = [
+    'img/hops1.jpg',
+    'img/hops2.jpg',
+    'img/hops3.jpg',
+    // Add more image paths as needed
+  ];
+
+  // Function to select a random image from the list
+  function displayRandomImage() {
+    const randomIndex = Math.floor(Math.random() * images.length);
+    document.getElementById('random-image').src = images[randomIndex];
+  }
+
+  // Call the function on page load
+  window.onload = displayRandomImage;
+</script>
+
+</body>
+</html>
